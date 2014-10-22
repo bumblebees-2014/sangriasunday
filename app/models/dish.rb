@@ -1,3 +1,3 @@
 class Dish < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :attendances
 end
