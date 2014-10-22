@@ -10,7 +10,17 @@ require 'rubygems'
 
 require 'uri'
 require 'pathname'
+# require google api
+require 'google/api_client'
+require 'google/api_client/client_secrets'
+require 'google/api_client/auth/file_storage'
+require 'google/api_client/auth/installed_app'
 
+require 'byebug'
+
+
+
+require 'dotenv'
 require 'pg'
 require 'bcrypt'
 require 'active_record'
@@ -31,3 +41,10 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+
+
+
+# create google client
+# Cal
+#

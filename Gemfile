@@ -6,13 +6,13 @@ gem 'pg'
 
 # Sinatra driver
 gem 'sinatra'
-
+gem 'byebug'
 gem 'activesupport', "~>4.1"
 gem 'activerecord', "~>4.1"
-
+gem 'dotenv'
 gem 'rake'
 gem 'bcrypt-ruby'
-
+gem 'google-api-client'
 gem 'shotgun'
 
 group :development, :test do
