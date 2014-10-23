@@ -1,0 +1,14 @@
+<% if @user == current_user  %>
+<div class="container">
+  <h1>Hey <%=current_user.username%></h1>
+  <h2>Are you suuuuure you want to leave?</h2>
+  <p>If you click this button, you are clearly "too stupid to have a good time."</p>
+  <form action="/users" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="confirm">
+  </form>
+</div>
+
+<% else %>
+<h1>Nothing to see here...</h1>
+<% end %>

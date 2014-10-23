@@ -1,0 +1,47 @@
+.container {
+  margin: 20px auto;
+  width: 800px;
+  padding: 0px 20px 20px 20px;
+  /*border: 1px dotted black;*/
+}
+
+nav {
+  background-color: red;
+  display: -webkit-box;
+}
+
+nav li {
+  display: inline-block;
+}
+
+
+nav a {
+  color: black;
+  text-decoration: none;
+  padding: 5px 10px 0px 10px;
+}
+
+nav ul {
+  margin-left: 500px;
+}
+
+#welcome {
+  width: 300px;
+}
+
+.popup {
+  border: 3px solid red;
+  background-color: grey;
+  width: 50%;
+  height: 80%;
+  max-height: 80%;
+  top: 10%;
+  left: 25%;
+  position: fixed;
+  overflow-y: scroll;
+}
+
+.close {
+  /*margin-top: 80%;*/
+  /*margin-left: 80%;*/
+}

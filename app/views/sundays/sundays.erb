@@ -1,0 +1,41 @@
+<div class="container">
+
+
+<iframe src="https://www.google.com/calendar/embed?src=tqir6m6tqnm92hp6s7fic8lc1c%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div class="container">
+  <h1>Upcoming Sangria Sundays</h1>
+  <ul>
+    <% @upcoming_sundays.each do |sunday| %>
+
+    <li>On: <%= sunday.date%> <%=sunday.host.username%> is hosting at: <%= sunday.location%> <button data-sundayId="<%=sunday.id%>" class="view-upcoming-sunday">
+    <% unless is_attending? sunday%>
+      Attend
+      <% else %>
+      View
+      <% end %>
+    </button> </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="container">
+<h1>Host a Sangria Sunday</h1>
+<form action="/sangria_sundays" method="post">
+  <p>Where?</p><p><input name="location" required></p>
+  <p>When?</p><p><input name="date" placeholder="2014-10-21" required></p>
+  <p><input type="submit" value="submit"><p>
+</form>
+</div>
+
+
+<div class="container">
+  <h1>Past Sangria Sundays</h1>
+  <ul>
+    <% @past_sundays.each do |sunday| %>
+
+    <li>On: <%= sunday.date%> <%=sunday.host.username%> hosted at: <%= sunday.location%> <button data-sundayId="<%=sunday.id%>" class="view-past-sunday">View</button> </li>
+    <% end %>
+  </ul>
+</div>

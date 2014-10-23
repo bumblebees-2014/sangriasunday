@@ -1,0 +1,35 @@
+<div class='popup' data-sundayId="<%=@sunday.id%>">
+<div class="container">
+  <%= erb :_show_messages%>
+  <% unless is_attending? @sunday%>
+    <button class="i-am-going">I'm Going</button>
+  <% else %>
+    <h1>You are going!</h1>
+    <button class="change-your-mind">Change your mind</button>
+    <div class="bring-something-container"><button class="show-bring-something">Bring Something</button><div>
+  <% end %>
+
+</div>
+
+
+
+  <div class="container">
+  <h1>This Sangria Sunday...</h1>
+  <h2>is being held at <%= @sunday.location %></h2>
+  <h2>on <%= @sunday.date %></h2>
+  <h2>by <%= @sunday.host.username %></h2>
+  <h2>and  <%= @sunday.attendances.size %> people are coming.</h2>
+  </div>
+
+  <div class="container">
+    <h1>Attendees</h1>
+  <ol>
+    <% @sunday.attendances.each do |attendance|%>
+    <li><%= attendance.user.username %></li>
+    <%end %>
+  </ol>
+  </div>
+
+  <button class="close">close</button>
+
+</div>
