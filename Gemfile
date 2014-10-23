@@ -11,7 +11,6 @@ gem 'activesupport', "~>4.1"
 gem 'activerecord', "~>4.1"
 gem 'dotenv'
 gem 'rake'
-gem 'bcrypt-ruby'
 gem 'bcrypt'
 gem 'google-api-client'
 gem 'shotgun'
