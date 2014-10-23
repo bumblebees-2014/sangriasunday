@@ -98,13 +98,16 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.1)
   activesupport (~> 4.1)
+  bcrypt
   bcrypt-ruby
   byebug
   dotenv
   faker
   google-api-client
+  json
   pg
   rake
   rspec
   shotgun
+  signet (>= 0.4.5)
   sinatra

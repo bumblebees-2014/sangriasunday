@@ -3,7 +3,8 @@
   <nav>
     <h1 id="welcome">Welcome <%= current_user.username%></h1>
     <ul>
-      <li><a href="">Profile</a></li>
+      <li><a href="/users">The Gria Faithful</a></li>
+      <li><a href="/users/<%=current_user.id%>">Profile</a></li>
       <li><a href="/sangria_sundays">Sangria Sundays</a></li>
       <li><a href="">Recipes</a></li>
       <li><a href="">Photos</a></li>

@@ -3,6 +3,7 @@ class CreateSangriaSundays < ActiveRecord::Migration
     create_table :sangria_sundays do |t|
       t.string :location
       t.date :date
+      t.timestamps
     end
   end
 end

@@ -28,3 +28,18 @@ nav ul {
 #welcome {
   width: 300px;
 }
+
+.popup {
+  border: 3px solid red;
+  background-color: grey;
+  width: 50%;
+  height: 80%;
+  top: 10%;
+  left: 25%;
+  position: fixed;
+}
+
+.close {
+  /*margin-top: 80%;*/
+  /*margin-left: 80%;*/
+}

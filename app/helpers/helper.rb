@@ -8,4 +8,8 @@ helpers do
     current_user
   end
 
+  def is_attending?(sunday)
+    Attendance.find_by(user: current_user, sangria_sunday: sunday)
+  end
+
 end

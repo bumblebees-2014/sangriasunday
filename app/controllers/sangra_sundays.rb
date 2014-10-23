@@ -1,61 +1,37 @@
 get '/sangria_sundays' do
-  # @result = api_client.execute(:api_method => calendar_api.events.list,
-  #                             :parameters => {'calendarId' => 'tqir6m6tqnm92hp6s7fic8lc1c@group.calendar.google.com'},
-  #                             :authorization => user_credentials)
-
-  @sundays = SangriaSunday.all
+  @upcoming_sundays = SangriaSunday.upcoming
+  @past_sundays = SangriaSunday.past
   # p @result.public_methods
-  erb :calendar
+  erb :'/sundays/sundays'
 end
 
 post '/sangria_sundays' do
-  sangria_sunday = SangriaSunday.create(location: params[:location], date: params[:date])
-  sangria_sunday.attendances << Attendance.create(user: current_user, is_host: true)
-# Add event to the official calendar
-#   event = {
-#   'summary' => 'Sangria Sunay',
-#   'location' => params[:location],
-#   'start' => {
-#     'dateTime' => params[:date] + 'T10:00:00.000-07:00'
-#   },
-#   'end' => {
-#     'dateTime' => params[:date] +'10:25:00.000-07:00'
-#   },
-#   # icebox implement, email the entire sangria sunday google listserv
-#   # 'attendees' => [
-#   #   {
-#   #     'email' => 'attendeeEmail'
-#   #   },
-#     #...
-#   # ]
-# }
+  # client side sunday validation
+  if Time.parse(params[:date]).wday == 0
+    sangria_sunday = SangriaSunday.create(location: params[:location], date: params[:date])
+    sangria_sunday.attendances << Attendance.create(user: current_user, is_host: true)
+  else
+    session[:messages] = {message: ["That is not a Sunday bro."]}
+  end
+    redirect '/sangria_sundays'
+end
 
-event = {
-  'summary' => 'Appointment',
-  'location' => 'Somewhere',
-  'start' => {
-    'dateTime' => '2014-10-03T10:00:00.000-07:00'
-  },
-  'end' => {
-    'dateTime' => '2014-10-03T10:25:00.000-07:00'
-  },
-  'attendees' => [
-    {
-      'email' => 'attendeeEmail'
-    },
-    #...
-  ]
-}
+get '/sangria_sundays/:id' do
+  @sunday = SangriaSunday.find(params[:id])
+  erb(:'/sundays/_show_sunday', :layout => false)
+end
 
-  result = api_client.execute(:api_method => $service.events.insert,
-                          :parameters => {'calendarId' => 'tqir6m6tqnm92hp6s7fic8lc1c@group.calendar.google.com'},
-                          :body => JSON.dump(event),
-                          :headers => {'Content-Type' => 'application/json',
-                          :authorization => user_credentials})
-  puts "--"
-  print result.response
-  # byebug
-  puts "--"
 
+# This seems not so RESTful...
+get '/sangria_sundays/:id/attend' do
+  @sunday = SangriaSunday.find(params[:id])
+  erb(:'/sundays/_attend_sunday', :layout => false)
+end
+
+post '/sangria_sundays/:id/attend' do
+  sunday = SangriaSunday.find(params[:id])
+  Attendance.create(user: current_user, sangria_sunday: sunday)
+  session[:messages] = {message: ["Welcome to the party!"]}
+  # erb(:'/sundays/_attend_sunday', :layout => false)
   redirect '/sangria_sundays'
 end

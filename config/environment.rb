@@ -19,7 +19,9 @@ require 'google/api_client/auth/installed_app'
 require 'byebug'
 
 
-
+require 'json'
+require 'base64'
+require 'net/https'
 require 'dotenv'
 require 'pg'
 require 'bcrypt'
@@ -44,7 +46,3 @@ require APP_ROOT.join('config', 'database')
 
 
 
-
-# create google client
-# Cal
-#

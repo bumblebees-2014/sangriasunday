@@ -1,0 +1,10 @@
+<div class="container">
+<h1>The <%= @users.size %> 'Gria Faithful</h1>
+<ul>
+<%@users.each do |user| %>
+
+<li><a href="/users/<%= user.id%>"><%= user.username %></a> went to their first Sangria Sunday at <%= user.attendances.first.sangria_sunday.location %> at 's apartment on <%= user.attendances.first.sangria_sunday.date %>. They have since attended <%= user.attendances.size %> Sangria Sundays and hosted <%= user.hosted.size %> Sangria Sundays.
+</li>
+<%end %>
+</ul>
+</div>

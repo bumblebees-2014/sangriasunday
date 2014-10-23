@@ -1,0 +1,36 @@
+<div class="container">
+<h1>Profile</h1>
+<ul>
+<li>Username: <%= @user.username %></li>
+<li>Email: <%= @user.email %></li>
+</ul>
+
+</div>
+
+<div class="container">
+  <a href="/users/<%= current_user.id %>/confirm_delete"><button>Delete Profile</button></a>
+
+    <a href="/users/<%= current_user.id %>/edit"><button>Edit Profile</button></a>
+</div>
+
+<div class="container">
+<h1>Sundays Attended</h1>
+<ul>
+<%@user.sangria_sundays.each do |sunday| %>
+
+<li>Went to <%= sunday.host.username %>'s apartment on <%= sunday.date %> for a good time.
+</li>
+<%end %>
+</ul>
+</div>
+
+<div class="container">
+<h1>Sundays Hosted</h1>
+<ul>
+<%@user.hosted.each do |sunday| %>
+
+<li>Entertained the masses on <%= sunday.date %> at  <%= sunday.location %> .
+</li>
+<%end %>
+</ul>
+</div>

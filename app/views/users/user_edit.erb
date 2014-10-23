@@ -1,0 +1,16 @@
+<% if @user == current_user %>
+<div class="container">
+<h1>Profile</h1>
+<form action="/users" method="post">
+  <input type="hidden" name="_method" value="patch">
+<p>Username:</p> <p><input name="args[username]" value="<%= @user.username %>"></p>
+<p>Email:</p><input name="args[email]" value="<%= @user.email %>"></p>
+<p>Password:</p> <p><input name="args[password]" type="password" placeholder="xxxxxxxxxx"></p>
+<p><input type="submit" value="update!"></p>
+</form>
+
+</div>
+
+<% else %>
+<h1>Nothing to see here...</h1>
+<% end %>
