@@ -1,13 +1,12 @@
-<div class='popup'>
+<div class='popup' data-sundayId="<%=@sunday.id%>">
 <div class="container">
   <%= erb :_show_messages%>
   <% unless is_attending? @sunday%>
-    <form id="iAmGoing" action="/sangria_sundays/<%=@sunday.id%>/attend" method="post">
-      <input type="submit" value="I'm going">
-    </form>
+    <button class="i-am-going">I'm Going</button>
   <% else %>
     <h1>You are going!</h1>
-    <button>Change your mind</button>
+    <button class="change-your-mind">Change your mind</button>
+    <div class="bring-something-container"><button class="show-bring-something">Bring Something</button><div>
   <% end %>
 
 </div>

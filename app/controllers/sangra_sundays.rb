@@ -22,16 +22,36 @@ get '/sangria_sundays/:id' do
 end
 
 
-# This seems not so RESTful...
+# AJAJAJAJAJAJAJAJX routes
+
+# They seems not so RESTful...
 get '/sangria_sundays/:id/attend' do
   @sunday = SangriaSunday.find(params[:id])
   erb(:'/sundays/_attend_sunday', :layout => false)
 end
 
 post '/sangria_sundays/:id/attend' do
-  sunday = SangriaSunday.find(params[:id])
-  Attendance.create(user: current_user, sangria_sunday: sunday)
+  @sunday = SangriaSunday.find(params[:id])
+  Attendance.create(user: current_user, sangria_sunday: @sunday)
   session[:messages] = {message: ["Welcome to the party!"]}
-  # erb(:'/sundays/_attend_sunday', :layout => false)
-  redirect '/sangria_sundays'
+  erb(:'/sundays/_attend_sunday', :layout => false)
+end
+
+# Can't namespace a delete route in ajax...can I?
+post '/sangria_sundays/:id/leave' do
+  @sunday = SangriaSunday.find(params[:id])
+  attendance = Attendance.find_by(user: current_user, sangria_sunday: @sunday)
+  attendance.delete
+  session[:messages] = {message: ["Aw..."]}
+  erb(:'/sundays/_attend_sunday', :layout => false)
+end
+
+post '/sangria_sundays/:id/bring' do
+  @sunday = SangriaSunday.find(params[:id])
+  attendance = Attendance.find_by(user: current_user, sangria_sunday: @sunday)
+  byebug
+  dish = Dish.create(params[:data])
+  attendance.dishes << dish
+  session[:messages] = {message: ["Can't wait to try the " + dish.title]}
+  erb(:'/sundays/_attend_sunday', :layout => false)
 end

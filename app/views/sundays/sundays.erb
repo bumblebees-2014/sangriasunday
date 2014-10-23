@@ -9,7 +9,13 @@
   <ul>
     <% @upcoming_sundays.each do |sunday| %>
 
-    <li>On: <%= sunday.date%> <%=sunday.host.username%> is hosting at: <%= sunday.location%> <button data-sundayId="<%=sunday.id%>" class="attend">Attend</button> </li>
+    <li>On: <%= sunday.date%> <%=sunday.host.username%> is hosting at: <%= sunday.location%> <button data-sundayId="<%=sunday.id%>" class="view-upcoming-sunday">
+    <% unless is_attending? sunday%>
+      Attend
+      <% else %>
+      View
+      <% end %>
+    </button> </li>
     <% end %>
   </ul>
 </div>
@@ -29,7 +35,7 @@
   <ul>
     <% @past_sundays.each do |sunday| %>
 
-    <li>On: <%= sunday.date%> <%=sunday.host.username%> hosted at: <%= sunday.location%> <button data-sundayId="<%=sunday.id%>" class="view-sunday">View</button> </li>
+    <li>On: <%= sunday.date%> <%=sunday.host.username%> hosted at: <%= sunday.location%> <button data-sundayId="<%=sunday.id%>" class="view-past-sunday">View</button> </li>
     <% end %>
   </ul>
 </div>
