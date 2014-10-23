@@ -27,7 +27,7 @@ require 'pg'
 require 'bcrypt'
 require 'active_record'
 require 'logger'
-
+require 'thin'
 require 'sinatra'
 
 require 'erb'
