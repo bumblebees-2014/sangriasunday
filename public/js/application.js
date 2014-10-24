@@ -4,7 +4,24 @@ $(document).ready(function () {
 });
 
 
-viewUpcomingSunday = function() {
+function Sunday(options) {
+  this.id = options.id;
+  this.date = options.date;
+  this.location = options.location;
+}
+
+Sunday.prototype.update = function() {
+  var data = this.JSONify()
+  var url = "...." + this.id
+ $.ajax({}).done(function() {SundayView.refresh})
+}
+
+Sunday.prototype.JSONify = function() {
+
+}
+
+
+var viewUpcomingSunday = function() {
   $('.view-upcoming-sunday').on('click', function(){
     $('.popup').remove()
     $.ajax({

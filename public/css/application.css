@@ -45,3 +45,18 @@ nav ul {
   /*margin-top: 80%;*/
   /*margin-left: 80%;*/
 }
+
+.hero-unit {
+  background-image: url('../berries.jpg');
+  height: 400px;
+}
+
+h1 {
+  font-family: 'muncie';
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+@font-family{
+  url: (../Muncie_Personal_License/Muncie.ttf);
+}

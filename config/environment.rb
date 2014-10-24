@@ -29,9 +29,8 @@ require 'active_record'
 require 'logger'
 require 'thin'
 require 'sinatra'
-
+require 'oauth2'
 require 'erb'
-
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
@@ -44,5 +43,31 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
+Dotenv.load
 
+CLIENT_ID = ENV['CLIENT_ID']
+CLIENT_SECRET = ENV['CLIENT_SECRET']
+
+#     CLIENT ||= OAuth2::Client.new(CLIENT_ID, CLIENT_SECRET, {
+#                   :site => 'https://accounts.google.com',
+#                   :authorize_url => "/o/oauth2/auth",
+#                   :token_url => "/o/oauth2/token"
+#                 })
+
+# Google::APIClient.new(
+#       :authorization => :oauth_2,
+#       :host => 'www.googleapis.com',
+#       :http_adapter => HTTPAdapter::NetHTTPAdapter.new
+#     )
+
+PLUS_LOGIN_SCOPE = 'https://www.googleapis.com/auth/plus.me'
+# $credentials = Google::APIClient::ClientSecrets.load
+$authorization = Signet::OAuth2::Client.new(
+    :authorization_uri => 'http://localhost:9393/auth',
+    :token_credential_uri => 'https://accounts.google.com/o/oauth2/token',
+    :client_id => ENV['CLIENT_ID'],
+    :client_secret => ENV['CLIENT_SECRET'],
+    :redirect_uri => 'http://localhost:9393/callback',
+    :scope => PLUS_LOGIN_SCOPE)
+$client = Google::APIClient.new
 
