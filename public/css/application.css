@@ -1,16 +1,16 @@
 body {
-
+background-color: #FFFFF3;
 }
 
 h1 {
   margin-top: 0px;
 }
-.container {
+/*.container {
   margin: 20px auto;
   width: 800px;
   padding: 0px 20px 20px 20px;
   /*border: 1px dotted black;*/
-}
+/*}*/
 
 nav {
   background-color: red;
@@ -38,7 +38,7 @@ nav ul {
 
 .popup {
   border: 3px solid red;
-  background-color: grey;
+  background-color: #D46D6A;
   width: 50%;
   height: 80%;
   max-height: 80%;
@@ -63,19 +63,68 @@ nav ul {
   font-family: 'QuaverSans';
   letter-spacing: 2px;
   font-weight: bold;
-  color: white;
-  font-size: 160px;
+  color: #428bca;
+  font-size: 96px;
+}
+
+ h2 {
+  font-family: 'QuaverSerif';
+  letter-spacing: 2px;
+  font-size: 24px;
 }
 
 .hero-unit h2 {
-  font-family: 'QuaverSerif';
-  letter-spacing: 2px;
   font-weight: bold;
-  color: white;
-  font-size: 80px;
+  color: #428bca;
+  font-size: 32px;
+}
+
+.card {
+  background-color: #D46D6A;
+  border: 10px solid #FFFFF3;
+  border-radius: 13px;
+}
+
+h3 {
+  font-family: 'QuaverSans';
+  text-align: center;
+}
+
+p {
+  font-family: 'QuaverSerif';
+  font-size: 16px;
+}
+
+.img-responsive {
+  margin: auto;
+  width: 80%;
+  max-height: 180px;
+  padding: 5% 10% 5% 10%;
+}
+
+.splash-featurette{
+  padding-top:40px;
+  padding-bottom:40px;
+  font-size:16px;
+  line-height:1.5;
+  color:#555;
+  text-align:center;
 }
 
 
+.login {
+  border: none;
+  background-color: #D46D6A;
+  width: 30%;
+  height: 80%;
+  max-height: 80%;
+  top: 10%;
+  left: 35%;
+  position: absolute; 
+}
+.box {
+  margin: auto;
+}
 
 @font-family{
   url: (../Muncie_Personal_License/Muncie.ttf);

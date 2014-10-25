@@ -2,6 +2,12 @@ get '/' do
   erb :index
 end
 
+get '/login' do
+
+  erb(:'_login', :layout => false)
+
+end
+
 post '/login' do
   user = User.find_by(email: params[:email])
   if user

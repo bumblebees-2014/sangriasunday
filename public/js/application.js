@@ -1,9 +1,17 @@
 $(document).ready(function () {
+  loginButton()
   viewPastSunday()
   viewUpcomingSunday()
 });
 
 
+function loginButton() {
+  $('#login-button').on('click', function(){
+    var data = '<div class="login popup"><div class="splash-featurette"><h2>Login</h2><form action="/login" method="post"><p>Email:</p><input name="email"><p>Password:</p><input name="password" type="password"><p></p><input type="submit" value="submit"></form></div><button class="close">close</button></div>'
+    $('body').prepend(data)
+    closePopup()
+  })
+}
 
 
 function viewUpcomingSunday() {
