@@ -7,7 +7,10 @@ end
 
 post '/sangria_sundays' do
   # client side sunday validation
+<<<<<<< HEAD
 
+=======
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
   if Time.parse(params[:date]).wday == 0
     sangria_sunday = SangriaSunday.create(location: params[:location], date: params[:date])
     sangria_sunday.attendances << Attendance.create(user: current_user, is_host: true)

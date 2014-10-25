@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
 
 }
@@ -5,6 +6,8 @@ body {
 h1 {
   margin-top: 0px;
 }
+=======
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
 .container {
   margin: 20px auto;
   width: 800px;
@@ -52,6 +55,7 @@ nav ul {
   /*margin-top: 80%;*/
   /*margin-left: 80%;*/
 }
+<<<<<<< HEAD
 
 .hero-unit {
   background-image: url('../berries.jpg');
@@ -82,3 +86,5 @@ nav ul {
   url: (../QuaverSansSerif_Personal_License/QuaverSans.otf);
   url: (../Muncie_Personal_License/QuaverSerif.otf);
 }
+=======
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a

@@ -4,6 +4,7 @@ $(document).ready(function () {
 });
 
 
+<<<<<<< HEAD
 function Sunday(options) {
   this.id = options.id;
   this.date = options.date;
@@ -22,6 +23,9 @@ Sunday.prototype.JSONify = function() {
 
 
 var viewUpcomingSunday = function() {
+=======
+viewUpcomingSunday = function() {
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
   $('.view-upcoming-sunday').on('click', function(){
     $('.popup').remove()
     $.ajax({

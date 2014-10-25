@@ -27,10 +27,18 @@ require 'pg'
 require 'bcrypt'
 require 'active_record'
 require 'logger'
+<<<<<<< HEAD
 require 'thin'
 require 'sinatra'
 require 'oauth2'
 require 'erb'
+=======
+
+require 'sinatra'
+
+require 'erb'
+
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
@@ -43,6 +51,7 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
+<<<<<<< HEAD
 Dotenv.load
 
 CLIENT_ID = ENV['CLIENT_ID']
@@ -70,4 +79,7 @@ $authorization = Signet::OAuth2::Client.new(
     :redirect_uri => 'http://localhost:9393/callback',
     :scope => PLUS_LOGIN_SCOPE)
 $client = Google::APIClient.new
+=======
+
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
 

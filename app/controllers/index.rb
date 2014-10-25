@@ -5,6 +5,7 @@ end
 post '/login' do
   user = User.find_by(email: params[:email])
   if user
+<<<<<<< HEAD
     if User.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
       redirect '/'
@@ -12,6 +13,15 @@ post '/login' do
       session[:messages] = {message: ["Login failed invalid password"]}
       redirect '/'
     end
+=======
+    # if User.authenticate(params[:email], params[:password])
+      session[:user_id] = user.id
+    #   redirect '/'
+    # else
+    #   session[:messages] = {message: ["Login failed invalid password"]}
+      redirect '/'
+    # end
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
   else
     session[:messages] = {message: ["Login failed invalid email"]}
     redirect '/'
@@ -29,9 +39,16 @@ get '/signup' do
 end
 
 post '/signup' do
+<<<<<<< HEAD
   @user = User.new(params[:args])
   if @user.save
     session[:messages] = {message: ["Welcome to Sangria Sunday. Sign In."]}
+=======
+  user = User.new(params[:args])
+  if user.valid?
+    session[:messages] = {message: ["Welcome to Sangria Sunday. Sign In."]}
+    user.save
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
     redirect '/'
   else
     session[:messages] = user.errors.messages
@@ -39,6 +56,7 @@ post '/signup' do
   end
 end
 
+<<<<<<< HEAD
 # GOOOOOGLELGOGLGOGOLGOGOGOGO
 
 get "/auth" do
@@ -72,3 +90,5 @@ get '/callback' do
 
   # redirect "/users/#{session[:current_user]}"
 end
+=======
+>>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
