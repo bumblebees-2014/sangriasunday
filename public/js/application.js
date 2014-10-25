@@ -4,28 +4,9 @@ $(document).ready(function () {
 });
 
 
-<<<<<<< HEAD
-function Sunday(options) {
-  this.id = options.id;
-  this.date = options.date;
-  this.location = options.location;
-}
-
-Sunday.prototype.update = function() {
-  var data = this.JSONify()
-  var url = "...." + this.id
- $.ajax({}).done(function() {SundayView.refresh})
-}
-
-Sunday.prototype.JSONify = function() {
-
-}
 
 
-var viewUpcomingSunday = function() {
-=======
-viewUpcomingSunday = function() {
->>>>>>> cb7a4d6a4c019f4cb0b88ffac7209ca6a71c358a
+function viewUpcomingSunday() {
   $('.view-upcoming-sunday').on('click', function(){
     $('.popup').remove()
     $.ajax({
